@@ -2,10 +2,9 @@ DESTDIR=
 PREFIX ?=	/usr/local
 SCRIPTS=	1 2 3 ctrlaltdel
 
-PACKAGE=runit-0.3.3
+PACKAGE=runit-0.4.0
 DIRS=doc man etc package src
 MANPAGES=man/runit.8 man/runit-init.8 man/svwaitdown.8 man/svwaitup.8
-DAEMONTOOLS_PD=daemontools-pd-0.76
 
 .PHONY: all install clean
 

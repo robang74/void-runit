@@ -4,7 +4,7 @@ DESTDIR=
 
 PACKAGE=runit-0.2.2
 DIRS=doc man etc package src
-MANPAGES=man/runit.8 man/runit-init.8
+MANPAGES=man/runit.8 man/runit-init.8 man/svwaitdown.8 man/svwaitup.8
 DAEMONTOOLS_PD=daemontools-pd-0.76
 
 .PHONY: all install clean

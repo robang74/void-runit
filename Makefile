@@ -70,6 +70,7 @@ clean:
 	  > doc/$$i.html ; \
 	done ; \
 	echo 'fix up html manually...'
+	echo 'patch -p0 <manpagehtml.diff'
 	sh
 	touch .manpages
 

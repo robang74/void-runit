@@ -2,7 +2,7 @@ PREFIX ?=	/usr/local
 SCRIPTS=	1 2 3 ctrlaltdel
 DESTDIR=
 
-PACKAGE=runit-0.4.0
+PACKAGE=runit-0.4.1
 DIRS=doc man etc package src
 MANPAGES=man/runit.8 man/runit-init.8 man/svwaitdown.8 man/svwaitup.8
 

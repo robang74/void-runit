@@ -4,6 +4,7 @@ DESTDIR=
 
 PACKAGE=runit-2.1.2
 DIRS=doc man etc package src
+SCRIPTS=	1 2 3 ctrlaltdel
 MANPAGES=runit.8 runit-init.8 runsvdir.8 runsv.8 sv.8 utmpset.8 \
   runsvchdir.8 svlogd.8 chpst.8
 
@@ -101,3 +102,11 @@ cleaner: clean
 	rm -f $(PACKAGE).tar.gz
 	for i in $(MANPAGES); do rm -f doc/`basename $$i`.html; done
 	rm -f .manpages
+
+install:
+	install -d ${DESTDIR}/etc/sv
+	install -d ${DESTDIR}/etc/runit/runsvdir
+	install -m755 ${SCRIPTS} ${DESTDIR}/etc/runit
+	install -m644 rc.conf ${DESTDIR}/etc
+	cp -aP runsvdir/* ${DESTDIR}/etc/runit/runsvdir/
+	cp -aP services/* ${DESTDIR}/etc/sv/

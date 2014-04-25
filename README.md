@@ -13,3 +13,19 @@ canonical version of the source code and to avoid the inclusion of patches in
 [void-packages](https://github.com/void-linux/void-packages). This also makes
 reviewing patches much simpler. If you have an issue or patch that you feel fits
 inside these objectives, please open an issue or pull request!
+
+### How to use it
+
+    # xbps-install -Sy runit-void
+    
+Append `init=/usr/bin/runit-init` to the kernel cmdline, I'd suggest you to use `/etc/default/grub`:
+
+    ...
+    GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 init=/usr/bin/runit-init"
+    ...
+    
+and then update GRUB's configuration file:
+
+    # update-grub
+    
+Enjoy!

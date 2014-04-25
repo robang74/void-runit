@@ -1,4 +1,4 @@
-# runit
+## Runit init scripts for void
 
 This repository holds the version of runit that is used by Void Linux. It
 incorporates patches that fix issues found by users as well as certain compiler

@@ -4,6 +4,7 @@ DESTDIR=
 
 PACKAGE=runit-2.1.2
 DIRS=doc man etc package src
+PREFIX ?=	/usr/local
 SCRIPTS=	1 2 3 ctrlaltdel
 MANPAGES=runit.8 runit-init.8 runsvdir.8 runsv.8 sv.8 utmpset.8 \
   runsvchdir.8 svlogd.8 chpst.8

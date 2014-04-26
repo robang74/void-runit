@@ -14,6 +14,9 @@ canonical version of the source code and to avoid the inclusion of patches in
 reviewing patches much simpler. If you have an issue or patch that you feel fits
 inside these objectives, please open an issue or pull request!
 
+This is loosely based on https://github.com/chneukirchen/ignite but with the
+difference that I'm trying to avoid the bash dependency.
+
 ### How to use it
 
     # xbps-install -Sy runit-void

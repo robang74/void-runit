@@ -53,11 +53,13 @@ cleaner: clean
 all:
 	$(CC) $(CFLAGS) halt.c -o halt
 	$(CC) $(CFLAGS) pause.c -o pause
+	$(CC) $(CFLAGS) suspend.c -o suspend
 
 install:
 	install -d ${DESTDIR}/${PREFIX}/bin
 	install -m755 halt ${DESTDIR}/${PREFIX}/bin
 	install -m755 pause ${DESTDIR}/${PREFIX}/bin
+	install -m755 suspend ${DESTDIR}/${PREFIX}/bin
 	install -m755 shutdown.sh ${DESTDIR}/${PREFIX}/bin/shutdown
 	ln -s halt ${DESTDIR}/${PREFIX}/bin/poweroff
 	ln -s halt ${DESTDIR}/${PREFIX}/bin/reboot
@@ -73,4 +75,4 @@ install:
 	cp -aP services/* ${DESTDIR}/etc/sv/
 
 clean:
-	-rm -f halt pause
+	-rm -f halt pause suspend

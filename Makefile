@@ -51,8 +51,8 @@ cleaner: clean
 	rm -f .manpages
 
 all:
-	$(CC) $(CFLAGS) halt.c -o halt
-	$(CC) $(CFLAGS) pause.c -o pause
+	$(CC) $(CFLAGS) halt.c -o halt $(LDFLAGS)
+	$(CC) $(CFLAGS) pause.c -o pause $(LDFLAGS)
 
 install:
 	install -d ${DESTDIR}/${PREFIX}/sbin

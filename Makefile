@@ -90,4 +90,4 @@ install:
 	cp -aP services/* ${DESTDIR}/etc/sv/
 
 clean:
-	-rm -f halt pause suspend
+	-rm -f halt pause

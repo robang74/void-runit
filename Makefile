@@ -91,3 +91,5 @@ install:
 
 clean:
 	-rm -f halt pause
+
+.PHONY: all install clean

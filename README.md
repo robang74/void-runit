@@ -2,8 +2,21 @@
 
 This repository contains the runit init scripts for the Void Linux distribution.
 
-This is loosely based on https://github.com/chneukirchen/ignite but with the
+It incorporates patches that fix issues found by users as well as certain
+compiler warnings.
+
+It is loosely based on https://github.com/chneukirchen/ignite but with the
 difference that I'm trying to avoid the bash dependency.
+
+The source history was obtained from <http://smarden.org/git/runit.git/>, but
+the release tarballs have been pruned from this version.
+
+The objective of this repository is not to revamp the runit code completely or
+add functionality that detracts from its simplicity, but rather to provide a
+canonical version of the source code and to avoid the inclusion of patches in
+[void-packages](https://github.com/void-linux/void-packages). This also makes
+reviewing patches much simpler. If you have an issue or patch that you feel fits
+inside these objectives, please open an issue or pull request!
 
 ## Dependencies
 
@@ -46,3 +59,6 @@ To the extent possible under law, the creator of this work has waived
 all copyright and related or neighboring rights to this work.
 
 http://creativecommons.org/publicdomain/zero/1.0/
+=======
+# runit
+

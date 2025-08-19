@@ -1,13 +1,21 @@
 DESTDIR=
+PREFIX ?=	/usr/local
+SCRIPTS=	1 2 3 ctrlaltdel
 
 PACKAGE=runit-2.1.2
 DIRS=doc man etc package src
-PREFIX ?=	/usr/local
-SCRIPTS=	1 2 3 ctrlaltdel
 MANPAGES=runit.8 runit-init.8 runsvdir.8 runsv.8 sv.8 utmpset.8 \
   runsvchdir.8 svlogd.8 chpst.8
 
+.PHONY: all install clean
+
 all: clean .manpages $(PACKAGE).tar.gz
+
+all:
+	$(CC) $(CFLAGS) halt.c -o halt $(LDFLAGS)
+	$(CC) $(CFLAGS) pause.c -o pause $(LDFLAGS)
+	$(CC) $(CFLAGS) vlogger.c -o vlogger $(LDFLAGS)
+	$(CC) $(CFLAGS) seedrng.c -o seedrng $(LDFLAGS)
 
 .manpages:
 	for i in $(MANPAGES); do \
@@ -41,6 +49,7 @@ $(PACKAGE).tar.gz:
 	  rm -rf TEMP'
 
 clean:
+	-rm -f halt pause vlogger
 	find . -name \*~ -exec rm -f {} \;
 	find . -name .??*~ -exec rm -f {} \;
 	find . -name \#?* -exec rm -f {} \;
@@ -49,12 +58,6 @@ cleaner: clean
 	rm -f $(PACKAGE).tar.gz
 	for i in $(MANPAGES); do rm -f doc/`basename $$i`.html; done
 	rm -f .manpages
-
-all:
-	$(CC) $(CFLAGS) halt.c -o halt $(LDFLAGS)
-	$(CC) $(CFLAGS) pause.c -o pause $(LDFLAGS)
-	$(CC) $(CFLAGS) vlogger.c -o vlogger $(LDFLAGS)
-	$(CC) $(CFLAGS) seedrng.c -o seedrng $(LDFLAGS)
 
 install:
 	install -d ${DESTDIR}/${PREFIX}/sbin
@@ -97,7 +100,3 @@ install:
 	cp -R --no-dereference --preserve=mode,links -v runsvdir/* ${DESTDIR}/etc/runit/runsvdir/
 	cp -R --no-dereference --preserve=mode,links -v services/* ${DESTDIR}/etc/sv/
 
-clean:
-	-rm -f halt pause vlogger
-
-.PHONY: all install clean
